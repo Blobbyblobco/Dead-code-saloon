@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Underground Fight Ring</title>
+    <style>
+        body { font-family: monospace; background-color: #111; color: #eee; }
+        .fighter { display: inline-block; width: 40%; text-align: center; }
+        .arena { margin-top: 20px; text-align: center; }
+        .log { background: #222; padding: 10px; margin-top: 20px; height: 150px; overflow-y: auto; }
+        .highlight { color: #f33; }
+    </style>
+</head>
+<body>
+    <h1>Underground Fight Ring</h1>
+    <p>You walk into the smoky basement. Two shady fighters prepare to brawl.</p>
+    <form method="post">
+        {% csrf_token %}
+        <p>Who do you bet on?</p>
+        <label><input type="radio" name="bet" value="fighter1" required> Fighter 1 ({{ f1['name'] }}) - {{ f1['odds'] }}x</label><br>
+        <label><input type="radio" name="bet" value="fighter2" required> Fighter 2 ({{ f2['name'] }}) - {{ f2['odds'] }}x</label><br><br>
+        <button type="submit">Place Bet & Start Fight</button>
+    </form>
+
+    {% if result %}
+    <div class="arena">
+        <div class="fighter">
+            <h2>{{ f1['name'] }}</h2>
+            <p>Health: {{ f1['hp'] }}</p>
+        </div>
+        <div class="fighter">
+            <h2>{{ f2['name'] }}</h2>
+            <p>Health: {{ f2['hp'] }}</p>
+        </div>
+    </div>
+    <div class="log">
+        {% for line in log %}
+            <div>{{ line }}</div>
+        {% endfor %}
+    </div>
+    <h2 class="highlight">{{ result }}</h2>
+    {% endif %}
+</body>
+</html>

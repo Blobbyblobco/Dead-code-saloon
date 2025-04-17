@@ -1,0 +1,1 @@
+web: gunicorn dead_code_salon.wsgi
