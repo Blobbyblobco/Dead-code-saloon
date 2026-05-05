@@ -1,10 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dead Code Saloon</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: radial-gradient(ellipse at top, #1a0a00 0%, #0d0500 100%);
+            font-family: 'Courier New', monospace;
+            color: #f0d9a0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px 60px;
+        }
+
+        .sign {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 30px 50px;
+            border: 4px solid #8b4513;
+            border-radius: 4px;
+            background: linear-gradient(to bottom, #2d1a0a, #1a0e05);
+            box-shadow: 0 0 40px rgba(139,69,19,0.4), inset 0 0 20px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .sign::before, .sign::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            width: 12px;
+            height: 24px;
+            background: #6b4226;
+            border-radius: 3px;
+        }
+        .sign::before { left: 40px; }
+        .sign::after { right: 40px; }
+
+        h1 {
+            font-size: 3.2rem;
+            color: #f1c40f;
+            text-shadow: 3px 3px 0 #6b4226, 5px 5px 0 #3d1a00;
+            letter-spacing: 8px;
+            line-height: 1;
+        }
+
+        .tagline {
+            color: #a0845c;
+            letter-spacing: 5px;
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+
+        .rope-divider {
+            color: #6b4226;
+            letter-spacing: 4px;
+            font-size: 1.1rem;
+            margin: 30px 0;
+        }
+
+        .game-cards {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 700px;
+        }
+
+        .game-card {
+            width: 290px;
+            border: 3px solid #6b4226;
+            background: linear-gradient(160deg, #2d1a0a 0%, #1a0e05 100%);
+            padding: 30px 24px;
+            text-align: center;
+            text-decoration: none;
+            color: #f0d9a0;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(241,196,15,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .game-card:hover {
+            border-color: #f1c40f;
+            box-shadow: 0 0 20px rgba(241,196,15,0.2);
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            display: block;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+
+        .game-card h2 {
+            color: #f1c40f;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+            font-size: 1rem;
+        }
+
+        .game-card p {
+            color: #a0845c;
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
+        .card-badge {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 5px 16px;
+            border: 1px solid #6b4226;
+            color: #c8a87c;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+        }
+
+        .game-card:hover .card-badge {
+            border-color: #f1c40f;
+            color: #f1c40f;
+        }
+
+        .footer-text {
+            margin-top: 60px;
+            color: #3d1a00;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Dead Code Saloon</h1>
-    <p><a href="/draw/">Go to Draw Duel</a></p>
+    <div class="sign">
+        <h1>DEAD CODE SALOON</h1>
+        <p class="tagline">~ est. 1887 ~ where bugs go to die ~</p>
+    </div>
+
+    <p class="rope-divider">~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</p>
+
+    <div class="game-cards">
+        <a class="game-card" href="/draw/">
+            <span class="card-icon">🤠</span>
+            <h2>QUICK DRAW DUEL</h2>
+            <p>Step into the dusty street and face the outlaw. Wait for the signal — then draw. Too slow, and the desert gets a new grave.</p>
+            <div class="card-badge">PLAY NOW &rarr;</div>
+        </a>
+
+        <a class="game-card" href="/fight/">
+            <span class="card-icon">🥊</span>
+            <h2>FIGHT BETTING</h2>
+            <p>Two roughnecks enter the ring. Only one walks out. Place your bet on the brawler and watch the punches fly.</p>
+            <div class="card-badge">PLACE BET &rarr;</div>
+        </a>
+    </div>
+
+    <p class="footer-text">~ THE CODE IS DEAD. THE WEST IS ALIVE. ~</p>
 </body>
 </html>

@@ -6,6 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('draw/', views.draw_duel, name='draw_duel'),
+    path('fight/', views.fight_betting, name='fight'),
 ]
-
-path('fight/', views.fight_betting, name='fight'),
